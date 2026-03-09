@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio Data Science | [Nama Anda]</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #2563eb;
+        --dark: #1e293b;
+        --light: #f8fafc;
+        --gray: #64748b;
+      }
+
+      /* Dark Mode */
+      [data-theme="dark"] {
+        --primary: #3b82f6;
+        --dark: #f8fafc;
+        --light: #1e293b;
+        --gray: #cbd5e1;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        background: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+        font-size: 14px;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: var(--dark);
+        color: var(--light);
+        border: none;
+        padding: 0.6rem 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+        z-index: 999;
+        transition: all 0.3s;
+      }
+
+      .theme-toggle:hover {
+        background: var(--primary);
+      }
+
+      header {
+        background: var(--light);
+        transition: all 0.3s;
+        padding: 4rem 2rem;
+        text-align: center;
+        border-bottom: 1px solid #e2e8f0;
+      }
+
+      /* Profile Picture Styling */
+      .profile-pic {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid var(--primary);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+        animation: fade-in 0.8s ease-out;
+      }
+
+      .profile-pic:hover {
+        transform: scale(1.05) rotate(5deg);
+        box-shadow: 0 12px 25px rgba(37, 99, 235, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .profile-pic {
+          width: 120px;
+          height: 120px;
+          border: 4px solid var(--primary);
+          margin-bottom: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .profile-pic {
+          width: 100px;
+          height: 100px;
+          border: 3px solid var(--primary);
+          margin-bottom: 0.8rem;
+        }
+      }
+      .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 2rem;
+      }
+      .badge {
+        background: var(--primary);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin-right: 5px;
+      }
+      h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        color: var(--dark);
+      }
+      .subtitle {
+        color: var(--gray);
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+      }
+      .section-title {
+        border-left: 5px solid var(--primary);
+        padding-left: 1rem;
+        margin: 3rem 0 1.5rem;
+      }
+
+      /* Project Cards */
+      .card {
+        background: var(--light);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        border: 1px solid rgba(100, 116, 139, 0.1);
+      }
+      .tech-stack {
+        margin: 1rem 0;
+      }
+      .btn {
+        display: inline-block;
+        padding: 0.6rem 1.2rem;
+        background: var(--dark);
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+      }
+      .btn:hover {
+        background: var(--primary);
+      }
+
+      footer {
+        text-align: center;
+        padding: 3rem;
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        /* Kode CSS untuk layar kecil (tablet/mobile) */
+        h1 {
+          font-size: 1.5rem; /* Ukuran lebih kecil */
+        }
+      }
+
+      /* MOBILE RESPONSIVE */
+      @media (max-width: 768px) {
+        body {
+          font-size: 14px;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        header {
+          padding: 2rem 1rem;
+        }
+
+        .container {
+          padding: 1rem;
+        }
+
+        .card {
+          padding: 1rem;
+        }
+
+        .section-title {
+          padding-left: 0.5rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 1.3rem;
+        }
+
+        .subtitle {
+          font-size: 1rem;
+        }
+
+        .btn {
+          padding: 0.5rem 1rem;
+          font-size: 0.8rem;
+        }
+
+        .tech-stack {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 5px;
+        }
+
+        .badge {
+          font-size: 0.7rem;
+          padding: 0.2rem 0.6rem;
+        }
+      }
+
+      /* CONTACT FORM STYLING */
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 2px solid var(--gray);
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 1rem;
+        background: var(--light);
+        color: var(--dark);
+        transition: border-color 0.3s;
+        box-sizing: border-box;
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .btn-submit {
+        background: var(--primary);
+        color: white;
+        padding: 0.8rem 2rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .btn-submit:hover {
+        background: var(--dark);
+        transform: translateY(-2px);
+      }
+
+      .form-message {
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 6px;
+        display: none;
+      }
+
+      .form-message.success {
+        background: #d1fae5;
+        color: #065f46;
+        border: 1px solid #6ee7b7;
+        display: block;
+      }
+
+      .form-message.error {
+        background: #fee2e2;
+        color: #7f1d1d;
+        border: 1px solid #fca5a5;
+        display: block;
+      }
+
+      /* ====== ANIMATIONS & KEYFRAMES ====== */
+      
+      /* Fade-In Animation */
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Slide-In Up Animation */
+      @keyframes slide-in-up {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Bounce Animation */
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+
+      /* Apply animations to elements */
+      header {
+        animation: fade-in 0.8s ease-out;
+      }
+
+      .card {
+        animation: slide-in-up 0.6s ease-out backwards;
+      }
+
+      /* Staggered animations - cards appear one by one */
+      .card:nth-child(1) { animation-delay: 0.1s; }
+      .card:nth-child(2) { animation-delay: 0.2s; }
+      .card:nth-child(3) { animation-delay: 0.3s; }
+      .card:nth-child(4) { animation-delay: 0.4s; }
+
+      /* Enhanced hover effect for cards */
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Button hover animation */
+      .btn {
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+      }
+
+      .btn-submit {
+        transition: all 0.3s ease;
+      }
+
+      .btn-submit:hover {
+        transform: scale(1.05) translateY(-2px);
+        box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+      }
+
+      .btn-submit:active {
+        transform: scale(0.98);
+      }
+
+      /* Form input focus animation */
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        transition: all 0.3s ease;
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      textarea:focus {
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+      }
+
+      /* Section titles slide animation */
+      .section-title {
+        animation: fade-in 0.6s ease-out;
+      }
+
+      /* Badge animation */
+      .badge {
+        transition: all 0.3s ease;
+      }
+
+      .badge:hover {
+        transform: scale(1.1);
+      }
+
+      /* Theme toggle button animation */
+      .theme-toggle {
+        animation: fade-in 0.6s ease-out;
+      }
+
+      .theme-toggle i {
+        transition: transform 0.3s ease;
+      }
+
+      .theme-toggle:hover i {
+        transform: rotate(20deg);
+      }
+
+      @media (max-width: 768px) {
+        .form-group {
+          margin-bottom: 1rem;
+        }
+
+        .btn-submit {
+          width: 100%;
+          padding: 0.7rem 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+      </button>
+      <h1>[Nama Anda]</h1>
+      <p class="subtitle">Fresh Graduate & Data Science Enthusiast</p>
+      <div style="margin-top: 1.5rem">
+        <a
+          href="mailto:email@anda.com"
+          style="color: var(--dark); margin: 0 10px"
+          ><i class="fas fa-envelope"></i
+        ></a>
+        <a
+          href="https://linkedin.com/in/username"
+          style="color: var(--dark); margin: 0 10px"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a
+          href="https://github.com/username"
+          style="color: var(--dark); margin: 0 10px"
+          ><i class="fab fa-github"></i
+        ></a>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="about">
+        <h2 class="section-title">Tentang Saya</h2>
+        <p>
+          Saya lulusan baru dari <strong>[Nama Universitas]</strong> yang
+          berfokus pada analisis data dan pembelajaran mesin. Saya terampil
+          dalam menggunakan Python untuk mengolah data mentah menjadi wawasan
+          yang dapat ditindaklanjuti. Memiliki pemahaman kuat dalam statistik
+          inferensial dan teknik pemodelan prediktif.
+        </p>
+      </section>
+
+      <section id="projects">
+        <h2 class="section-title">Proyek Data Science</h2>
+
+        <div class="card">
+          <h3>Analisis Sentimen Media Sosial (Twitter & Reddit)</h3>
+          <p>
+            Menganalisis persepsi publik terhadap Produk X menggunakan teknik
+            NLP untuk mengidentifikasi tren emosi pengguna secara real-time.
+          </p>
+          <div class="tech-stack">
+            <span class="badge">Python</span>
+            <span class="badge">NLP</span>
+            <span class="badge">NLTK</span>
+            <span class="badge">Matplotlib</span>
+          </div>
+          <ul>
+            <li>Otomasi pembersihan data teks (Stemming, Lemmatization).</li>
+            <li>Visualisasi distribusi sentimen (Positif, Negatif, Netral).</li>
+          </ul>
+          <a href="#" class="btn"><i class="fab fa-github"></i> Lihat Kode</a>
+        </div>
+
+        <div class="card">
+          <h3>Prediksi Penjualan E-commerce</h3>
+          <p>
+            Membangun model regresi untuk memprediksi volume penjualan bulanan
+            berdasarkan variabel harga, promosi, dan tren musiman.
+          </p>
+          <div class="tech-stack">
+            <span class="badge">Machine Learning</span>
+            <span class="badge">Scikit-Learn</span>
+            <span class="badge">Pandas</span>
+            <span class="badge">Regression</span>
+          </div>
+          <ul>
+            <li>
+              Mencapai akurasi $R^2$ yang optimal melalui hyperparameter tuning.
+            </li>
+            <li>
+              Membantu departemen logistik dalam merencanakan stok inventaris.
+            </li>
+          </ul>
+          <a href="#" class="btn"><i class="fab fa-github"></i> Lihat Kode</a>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2 class="section-title">Keahlian Teknis</h2>
+        <p><strong>Bahasa:</strong> Python, SQL, R</p>
+        <p><strong>Tools:</strong> Jupyter Notebook, Tableau, Power BI, Git</p>
+        <p>
+          <strong>Library:</strong> Pandas, NumPy, Scikit-learn, Seaborn, Plotly
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2 class="section-title">Hubungi Saya</h2>
+        <p>Tertarik berkolaborasi atau lebih ingin tahu? Hubungi saya melalui form di bawah ini!</p>
+        
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="name">Nama Lengkap *</label>
+            <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="email@anda.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subjek</label>
+            <input type="text" id="subject" name="subject" placeholder="Topik pesan (opsional)">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Pesan *</label>
+            <textarea id="message" name="message" placeholder="Tulis pesan Anda di sini..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
+
+          <div id="form-message" class="form-message"></div>
+        </form>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 [Nama Anda]. Dibuat dengan antusiasme terhadap data.</p>
+    </footer>
+
+    <script>
+      // ===== DARK MODE FUNCTIONALITY =====
+      const themeToggle = document.getElementById('theme-toggle');
+      const htmlElement = document.documentElement;
+
+      // Fungsi untuk ganti tema
+      function toggleTheme() {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        // Set tema ke HTML element
+        htmlElement.setAttribute('data-theme', newTheme);
+        
+        // Simpan ke localStorage
+        localStorage.setItem('theme', newTheme);
+        
+        // Update icon tombol
+        updateThemeIcon(newTheme);
+      }
+
+      // Update icon saat tema berubah
+      function updateThemeIcon(theme) {
+        const icon = themeToggle.querySelector('i');
+        if (theme === 'dark') {
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+        } else {
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+        }
+      }
+
+      // Ketika tombol diklik
+      themeToggle.addEventListener('click', toggleTheme);
+
+      // Saat page load, cek localStorage dan terapkan tema tertimpan
+      window.addEventListener('load', () => {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+      });
+
+      // ===== SMOOTH SCROLLING =====
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+
+      // ===== CONTACT FORM HANDLING =====
+      const contactForm = document.getElementById('contact-form');
+      const formMessage = document.getElementById('form-message');
+
+      function validateForm(name, email, message) {
+        // Validasi nama tidak kosong
+        if (name.trim() === '') {
+          showMessage('Nama harus diisi!', 'error');
+          return false;
+        }
+
+        // Validasi email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          showMessage('Format email tidak valid!', 'error');
+          return false;
+        }
+
+        // Validasi pesan tidak kosong
+        if (message.trim() === '') {
+          showMessage('Pesan harus diisi!', 'error');
+          return false;
+        }
+
+        return true;
+      }
+
+      function showMessage(message, type) {
+        formMessage.textContent = message;
+        formMessage.classList.remove('success', 'error');
+        formMessage.classList.add(type);
+      }
+
+      function resetForm() {
+        contactForm.reset();
+        setTimeout(() => {
+          formMessage.classList.remove('success', 'error');
+        }, 3000);
+      }
+
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Ambil nilai dari input fields
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // Validasi form
+        if (validateForm(name, email, message)) {
+          // Jika valid, tampilkan success message
+          showMessage('✓ Pesan terkirim! Terima kasih telah menghubungi saya. Saya akan merespons secepatnya.', 'success');
+          resetForm();
+        }
+      });
+    </script>
+  </body>
+</html>
