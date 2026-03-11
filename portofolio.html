@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio RIJKI RESDA NAJMUDIN</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#" class="nav-logo">RIJKI</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#about" class="nav-link" data-i18n="navAbout">Tentang</a></li>
+          <li><a href="#projects" class="nav-link" data-i18n="navProjects">Proyek</a></li>
+          <li><a href="#skills" class="nav-link" data-i18n="navSkills">Keahlian</a></li>
+          <li><a href="#certificates" class="nav-link" data-i18n="navCertificates">Sertifikat</a></li>
+          <li><a href="#contact" class="nav-link" data-i18n="navContact">Kontak</a></li>
+          <li><a href="assets/cv/CV - Rijki Resda Najmudin.pdf" class="nav-link nav-cv" target="_blank" data-i18n="navCV"><i class="fas fa-file-pdf"></i> CV</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <header>
+      <div class="header-controls">
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="lang-toggle" id="lang-toggle" aria-label="Toggle language">
+          <i class="fas fa-language"></i> <span id="lang-label">ID</span>
+        </button>
+      </div>
+
+      <!-- profile picture stored locally in assets/images/profile.jpg -->
+      <img src="assets/images/profile.jpg" alt="Foto Profil" class="profile-pic">
+      
+      <h1 data-i18n="name">RIJKI RESDA NAJMUDIN</h1>
+      <p class="subtitle" data-i18n="subtitle">Fresh Graduate</p>
+      <div style="margin-top: 1.5rem">
+        <a
+          href="mailto:email@anda.com"
+          style="color: var(--dark); margin: 0 10px"
+          ><i class="fas fa-envelope"></i
+        ></a>
+        <a
+          href="https://linkedin.com/in/username"
+          style="color: var(--dark); margin: 0 10px"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a
+          href="https://github.com/username"
+          style="color: var(--dark); margin: 0 10px"
+          ><i class="fab fa-github"></i
+        ></a>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Bento Grid Layout -->
+      <div class="bento-grid">
+        <!-- Hero/Profile Section - Large -->
+        <div class="bento-item hero-card" id="hero">
+          <div class="hero-content">
+            <h1 data-i18n="name">RIJKI RESDA NAJMUDIN</h1>
+            <p class="subtitle" data-i18n="subtitle">Teknisi ATM & Data Science Enthusiast</p>
+            <p class="hero-contact" data-i18n="aboutContact">
+              📱 <strong>085839946300</strong> | 📧 <strong>rijkiresda19@gmail.com</strong>
+            </p>
+            <div class="hero-links">
+              <a href="mailto:rijkiresda19@gmail.com" class="hero-link">
+                <i class="fas fa-envelope"></i>
+              </a>
+              <a href="https://wa.me/6285839946300" class="hero-link" target="_blank" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <a href="https://linkedin.com/in/username" class="hero-link">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a href="https://github.com/username" class="hero-link">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="assets/images/profile.jpg" alt="Foto Profil" class="profile-pic">
+          </div>
+        </div>
+
+        <!-- About Summary - Medium -->
+        <div class="bento-item about-summary" id="about-summary">
+          <h3 data-i18n="aboutSummaryTitle">Ringkasan Profesional</h3>
+          <p data-i18n="aboutSummaryText">
+            Seorang yang bertanggung jawab atas pemeliharaan dan perbaikan ATM secara berkala untuk
+            memastikan kepuasan pelanggan dan kelancaran transaksi keuangan.
+          </p>
+        </div>
+
+        <!-- Education - Small -->
+        <div class="bento-item education" id="education">
+          <h3 data-i18n="aboutEducationTitle">Pendidikan</h3>
+          <div class="edu-item">
+            <p><strong>SMA PGRI KURNIA</strong></p>
+            <p data-i18n="aboutEducationDetail">Ilmu Pengetahuan Sosial (2016-2018)</p>
+          </div>
+          <div class="edu-item">
+            <p><strong>STMIK Jakarta</strong></p>
+            <p data-i18n="aboutUniversityDetail">Sistem Informasi (2025)</p>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <h4 data-i18n="aboutExperienceTitle">Pengalaman Kerja</h4>
+          <div class="about-item">
+            <p><strong>PT. TRANS DANA PERDANA</strong></p>
+            <p class="exp-role" data-i18n="aboutExpKoordinator">Koordinator CPC (Juni 2019 – Desember 2020)</p>
+            <ul>
+              <li data-i18n="aboutExpCPC1">Memantau kegiatan di CPC, termasuk pencatatan, administrasi, dan rekonsilisasi</li>
+              <li data-i18n="aboutExpCPC2">Memproses uang tunai (penghitungan, penyortiran, pengepakan, pembendelan)</li>
+            </ul>
+          </div>
+          <div class="about-item">
+            <p class="exp-role" data-i18n="aboutExpCIT">Cash In Transit (Januari 2021 – Maret 2023)</p>
+            <ul>
+              <li data-i18n="aboutExpCIT1">Menjelaskan penanganan logistik uang kertas dan barang berharga</li>
+              <li data-i18n="aboutExpCIT2">Melakukan penghitungan uang dan rekonsilisasi di lokasi tujuan</li>
+            </ul>
+          </div>
+          <div class="about-item">
+            <p class="exp-role" data-i18n="aboutExpATM">Teknisi ATM (April 2023 – Saat Ini)</p>
+            <ul>
+              <li data-i18n="aboutExpATM1">Memeriksa kondisi infrastruktur pendukung ATM</li>
+              <li data-i18n="aboutExpATM2">Menangani masalah mesin ATM dan melakukan perbaikan</li>
+              <li data-i18n="aboutExpATM3">Membantu pengupgradean software dan pengisian ATM</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="about-section about-skills">
+          <h4 data-i18n="aboutSkillsTitle">Kemampuan</h4>
+          <div class="skills-container">
+            <div class="skill-category">
+              <h5 data-i18n="aboutHardSkillTitle">Hard Skills</h5>
+              <div class="skill-tags">
+                <span class="skill-tag" data-i18n="skillATMmaintenance">Pemeliharaan ATM</span>
+                <span class="skill-tag" data-i18n="skillCNC">Pengeoperasian CNC</span>
+                <span class="skill-tag" data-i18n="skillTechnicalDrawing">Pembacaan Gambar Teknik</span>
+                <span class="skill-tag" data-i18n="skillSoftwareUpgrade">Upgrade Software</span>
+                <span class="skill-tag" data-i18n="skillMsOffice">Microsoft Office</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h5 data-i18n="aboutSoftSkillTitle">Soft Skills</h5>
+              <div class="skill-tags">
+                <span class="skill-tag soft" data-i18n="skillTeamwork">Kerjasama Tim</span>
+                <span class="skill-tag soft" data-i18n="skillProblemSolving">Problem Solving</span>
+                <span class="skill-tag soft" data-i18n="skillTimeManagement">Manajemen Waktu</span>
+                <span class="skill-tag soft" data-i18n="skillCommunication">Komunikatif</span>
+                <span class="skill-tag soft" data-i18n="skillAdaptability">Kemampuan Beradaptasi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skills - Medium -->
+        <div class="bento-item skills" id="skills">
+          <h3 data-i18n="skillsTitle">Keahlian Teknis</h3>
+          <div class="skills-content">
+            <p data-i18n="skillsLanguages"><strong>Bahasa:</strong> Python, SQL, R</p>
+            <p data-i18n="skillsTools"><strong>Tools:</strong> Jupyter Notebook, Tableau, Power BI, Git</p>
+            <p data-i18n="skillsLibrary">
+              <strong>Library:</strong> Pandas, NumPy, Scikit-learn, Seaborn, Plotly
+            </p>
+          </div>
+        </div>
+
+        <!-- Certificates - Medium -->
+        <div class="bento-item certificates" id="certificates">
+          <h3 data-i18n="certificatesTitle">Sertifikat</h3>
+          <div class="certificates-grid">
+            <div class="cert-card">
+              <h4>JQuery Dasar (CODEPOLITAN)</h4>
+              <p>Pelatihan dasar JQuery dari platform CODEPOLITAN.</p>
+              <a href="assets/certs/Certificate Detail - JQuery Dasar - CODEPOLITAN.pdf" class="btn" target="_blank"><i class="fas fa-certificate"></i> Lihat</a>
+            </div>
+            <div class="cert-card">
+              <h4>Text Editor (CODEPOLITAN)</h4>
+              <p>Pengenalan text editor populer untuk pemrograman.</p>
+              <a href="assets/certs/Certificate Detail - text editor- CODEPOLITAN.pdf" class="btn" target="_blank"><i class="fas fa-certificate"></i> Lihat</a>
+            </div>
+            <div class="cert-card">
+              <h4>Dasar-dasar HTML dan CSS (CODEPOLITAN)</h4>
+              <p>Materi fundamental HTML dan CSS untuk membangun halaman web.</p>
+              <a href="assets/certs/Certificate Detail -Dasar-dasar HTML dan CSS - CODEPOLITAN.pdf" class="btn" target="_blank"><i class="fas fa-certificate"></i> Lihat</a>
+            </div>
+            <div class="cert-card">
+              <h4>Algoritma dan Pemrograman Dasar (CODEPOLITAN)</h4>
+              <p>Konsep dasar algoritma dan pemrograman untuk pemula.</p>
+              <a href="assets/certs/Certificate Detail- Algoritma dan Pemrograman Dasar  - CODEPOLITAN.pdf" class="btn" target="_blank"><i class="fas fa-certificate"></i> Lihat</a>
+            </div>
+            <div class="cert-card">
+              <h4>JavaScript Dasar (CODEPOLITAN)</h4>
+              <p>Pembelajaran dasar-dasar JavaScript untuk interaktivitas web.</p>
+              <a href="assets/certs/Certificate Detail- JavaScript Dasar- CODEPOLITAN.pdf" class="btn" target="_blank"><i class="fas fa-certificate"></i> Lihat</a>
+            </div>
+            <div class="cert-card">
+              <h4>Mengenal Pemrograman Komputer (CODEPOLITAN)</h4>
+              <p>Pengenalan umum tentang pemrograman komputer dan logika dasar.</p>
+              <a href="assets/certs/Certificate Detail- Mengenal Pemrograman Komputer dalam program  - CODEPOLITAN.pdf" class="btn" target="_blank"><i class="fas fa-certificate"></i> Lihat</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact - Large -->
+        <div class="bento-item contact" id="contact">
+          <h3 data-i18n="contactTitle">Hubungi Saya</h3>
+          <p data-i18n="contactDesc">Tertarik berkolaborasi atau memiliki pertanyaan?</p>
+          <div class="contact-methods">
+            <a href="https://wa.me/6285839946300" class="contact-method whatsapp" target="_blank">
+              <i class="fab fa-whatsapp"></i>
+              <span>WhatsApp: 0858-3994-6300</span>
+            </a>
+            <a href="mailto:rijkiresda19@gmail.com" class="contact-method email">
+              <i class="fas fa-envelope"></i>
+              <span>Email: rijkiresda19@gmail.com</span>
+            </a>
+          </div>
+          <form id="contact-form">
+            <div class="form-row">
+              <input type="text" id="name" name="name" placeholder="Nama" required>
+              <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <input type="text" id="subject" name="subject" placeholder="Subjek">
+            <textarea id="message" name="message" placeholder="Pesan..." required></textarea>
+            <button type="submit" class="btn-submit">
+              <i class="fas fa-paper-plane"></i> Kirim
+            </button>
+            <div id="form-message" class="form-message"></div>
+          </form>
+        </div>
+
+      </div>
+
+    <footer>
+      <p>&copy; 2026 RIJKI RESDA NAJMUDIN. Dibuat dengan antusiasme terhadap data.</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
