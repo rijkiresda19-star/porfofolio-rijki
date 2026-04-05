@@ -287,3 +287,103 @@ contactForm.addEventListener('submit', function (e) {
     resetForm();
   }
 });
+
+// ===== SCROLL REVEAL ANIMATION =====
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const scrollObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      scrollObserver.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+// Apply scroll reveal to bento items and cards
+document.querySelectorAll('.bento-item, .card, .cert-card, .about-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+  scrollObserver.observe(el);
+});
+
+// ===== ANIMATED COUNTER FOR STATS =====
+function animateCounter(element, target, duration = 1500) {
+  let current = 0;
+  const increment = target / (duration / 16);
+  
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      element.textContent = target;
+      clearInterval(timer);
+    } else {
+      element.textContent = Math.floor(current);
+    }
+  }, 16);
+}
+
+// ===== PARALLAX EFFECT ON SCROLL =====
+window.addEventListener('scroll', () => {
+  const parallaxElements = document.querySelectorAll('[data-parallax]');
+  parallaxElements.forEach(el => {
+    const scrollPosition = window.pageYOffset;
+    const yOffset = scrollPosition * 0.5;
+    el.style.transform = `translateY(${yOffset}px)`;
+  });
+});
+
+// ===== MOUSE FOLLOW EFFECT ON PROFILE PIC =====
+const profilePic = document.querySelector('.profile-pic');
+if (profilePic) {
+  document.addEventListener('mousemove', (e) => {
+    const mouseX = e.clientX / window.innerWidth;
+    const mouseY = e.clientY / window.innerHeight;
+    const rotateX = (mouseY - 0.5) * 10;
+    const rotateY = (mouseX - 0.5) * 10;
+    
+    // Smooth mouse follow effect
+    profilePic.style.perspective = '1000px';
+  });
+}
+
+// ===== ANIMATED GRADIENT BACKGROUND =====
+const header = document.querySelector('header');
+if (header) {
+  setInterval(() => {
+    const colors = [
+      'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%)',
+      'linear-gradient(135deg, #1a1f3a 0%, #0a0e27 50%, #1a1f3a 100%)'
+    ];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    // Uncomment if you want animated backgrounds
+    // header.style.background = randomColor;
+  }, 5000);
+}
+
+// ===== ADD CLICK RIPPLE EFFECT =====
+document.querySelectorAll('.btn, .btn-submit, .hero-link, .contact-method').forEach(button => {
+  button.addEventListener('click', function(e) {
+    const ripple = document.createElement('span');
+    const rect = this.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = e.clientX - rect.left - size / 2;
+    const y = e.clientY - rect.top - size / 2;
+    
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = x + 'px';
+    ripple.style.top = y + 'px';
+    ripple.className = 'ripple';
+    
+    this.appendChild(ripple);
+    
+    setTimeout(() => {
+      ripple.remove();
+    }, 600);
+  });
+});
